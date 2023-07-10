@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    border: none;
+    border: 0;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -60,7 +60,7 @@ body main .container span {
 }
 
 body main .container .above {
-    /* gap: 1rem; */
+    gap: 1rem;
     display: flex;
     /* justify-content: center; */ 
     /* margin-top: 1.5rem; */
@@ -98,6 +98,27 @@ body main div.line-button div.line {
     width: 100%;
 }
 /* ---------------------------------------------------------------- */
+body main div.result {}
+body main div.result div.resultYear, div.resultMonth, div.resultDay {
+    display: flex;
+    align-items: center;
+}
+body main div.result div {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 3rem;
+}
+
+
+body main div.result div h1 {
+    color: var(--primary);
+    font-weight: 700;
+    font-style: italic;
+}
+
+body main div.result div h2 {
+    font-style: italic;
+}
 
 /* ---------------------------------------------------------------- */
 
