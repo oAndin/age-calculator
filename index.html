@@ -12,33 +12,39 @@
 <body>
   <main>
     <div class="container">
-      <div class="above">
-        <span class="day">
-          <label for="DAY">DAY</label>
-          <input type="text" required min="1" max="31" placeholder="DD">
-        </span>
-        <span class="month">
-          <label for="MONTH">MONTH</label>
-          <input type="text" required min="1" max="12" placeholder="MM">
-        </span>
-        <span class="year">
-          <label for="YEAR">YEAR</label>
-          <input type="text" placeholder="YYYY">
-        </span>
-      </div>
-      <div class="line-button">
-        <div class="line"></div>
-        <button><box-icon name='arrow-back' rotate='270' size="lg"></box-icon></button>
-      </div>
+      <form>
+        <div class="row">
+          <div class="day">
+            <label for="DAY">DAY</label>
+            <input id="day" type="number" min="1" max="31" placeholder="DD" required>
+          </div>
+          <span class="month">
+            <label for="MONTH">MONTH</label>
+            <input id="month" type="text" required min="1" max="12" placeholder="MM">
+          </span>
+          <span class="year">
+            <label for="YEAR">YEAR</label>
+            <input id="year" type="text" placeholder="YYYY">
+          </span>
+        </div>
+        <div class="line-button">
+          <div class="line"></div>
+          <button type="submit" id="calcBtn" onclick="calc"><box-icon name='arrow-back' rotate='270'
+              size="lg"></box-icon></button>
+        </div>
+      </form>
       <div class="result">
         <div class="resultYear">
-          <h1 id="year">--</h1><h2>years</h2>
+          <h1 id="yearResult">--</h1>
+          <h2>years</h2>
         </div>
         <div class="resultMonth">
-          <h1 id="month">--</h1><h2>months</h2>
+          <h1 id="monthResult">--</h1>
+          <h2>months</h2>
         </div>
         <div class="resultDay">
-          <h1 id="day">--</h1><h2>days</h2>
+          <h1 id="dayResult">--</h1>
+          <h2>days</h2>
         </div>
       </div>
     </div>
@@ -47,9 +53,9 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/oAndin">Andherson Costa</a>.
   </div>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-  <script src="./public/js/script.js"></script>
 </body>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<script src="./public/js/script.js"></script>
 
 </html>

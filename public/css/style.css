@@ -53,25 +53,25 @@ body main .container {
     background-color: var(--white);
 }
 
-body main .container span {
+body main .container div .day,.month,.year {
     width: calc(25% - (1rem));
     display: flex;
     flex-direction: column;
 }
 
-body main .container .above {
+body main .container form .row {
     gap: 1rem;
     display: flex;
     /* justify-content: center; */ 
     /* margin-top: 1.5rem; */
 }
 
-body main .container span label {
+body main .container label {
     color: #716f6f;
     font-size: var(--labelFontSize);
 }
 
-body main .container span input {
+body main .container input {
     padding: 0.7rem 0.7rem 0.7rem 1rem;
     border-radius: 6px;
     border: 0.5px solid var(--lightGrey);
@@ -91,6 +91,12 @@ body main div.line-button button {
     border-radius: 50%;
     background-color: var(--primary);
     fill: var(--offWhite);
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+body main div.line-button button:hover {
+    transform: scale(1.1);
 }
 
 body main div.line-button div.line {
