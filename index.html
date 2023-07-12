@@ -12,19 +12,19 @@
 <body>
   <main>
     <div class="container">
-      <form>
+      <form onSubmit="calc()">
         <div class="row">
           <div class="day">
             <label for="DAY">DAY</label>
-            <input id="day" type="number" min="1" max="31" placeholder="DD" required>
+            <input id="day" name="DAY" type="text" placeholder="DD" required>
           </div>
           <span class="month">
             <label for="MONTH">MONTH</label>
-            <input id="month" type="text" required min="1" max="12" placeholder="MM">
+            <input id="month" type="text" placeholder="MM" required>
           </span>
           <span class="year">
             <label for="YEAR">YEAR</label>
-            <input id="year" type="text" placeholder="YYYY">
+            <input id="year" type="text" placeholder="YYYY" required>
           </span>
         </div>
         <div class="line-button">
@@ -49,6 +49,10 @@
       </div>
     </div>
   </main>
+  <!-- <div class="teste">
+    <input type="text" name="" id="" required>
+    <button type="submit">Testar</button>
+  </div> -->
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/oAndin">Andherson Costa</a>.

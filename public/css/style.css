@@ -47,9 +47,9 @@ body {
 body main .container {
     width: 100%;
     height: 100%;
-    padding: 1rem 1rem;
-    border-radius: 8px;
-    border-bottom-right-radius: 80px;
+    padding: 3rem 3rem;
+    border-radius: 16px;
+    border-bottom-right-radius: 160px;
     background-color: var(--white);
 }
 
@@ -72,6 +72,7 @@ body main .container label {
 }
 
 body main .container input {
+    width: 75%;
     padding: 0.7rem 0.7rem 0.7rem 1rem;
     border-radius: 6px;
     border: 0.5px solid var(--lightGrey);
@@ -105,10 +106,24 @@ body main div.line-button div.line {
 }
 /* ---------------------------------------------------------------- */
 body main div.result {}
+
 body main div.result div.resultYear, div.resultMonth, div.resultDay {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
+
+body main div.result div.resultMonth, div.resultDay {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+body main div.result div.resultDay {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 body main div.result div {
     display: flex;
     gap: 0.5rem;
