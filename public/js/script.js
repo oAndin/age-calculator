@@ -41,6 +41,8 @@ leapYear();
 calcBtn.onclick = function calc() {
     event.preventDefault();
     
+    
+
     let inputDay; 
     inputDay = day.value;
     let inputMonth; 
@@ -49,12 +51,18 @@ calcBtn.onclick = function calc() {
     inputYear = year.value;
     
     let calcYear;
-    calcYear = todaysYear - inputYear;  
+    calcYear = todaysYear - inputYear; 
+    
+    let calcMonth;
+    calcMonth = todaysMonth - inputMonth;
+
+    let calcDay;
+    calcDay = inputDay - todaysDay;
 
     // write the exact day, month and year!
     yearResult.innerHTML = `${calcYear}`;
-    monthResult.innerHTML = `${month.value}`;
-    dayResult.innerHTML = `${day.value}`;
+    monthResult.innerHTML = `${calcMonth}`;
+    dayResult.innerHTML = `${calcDay}`;
 };
 
 
