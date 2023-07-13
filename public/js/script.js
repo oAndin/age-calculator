@@ -59,6 +59,24 @@ function calc() {
         }
     }
     
+    let correctInputMonth =  checkInputMonth();
+    function checkInputMonth () {
+        if (inputMonth.lenght < 3 && inputMonth < 13) {
+            return true;
+            }
+        else { 
+            return falae;
+        }
+    }
+    
+    let correctInputYear = checkInputYear ();
+    function checkInputYear () {
+        if (inputYear.length < 5) {
+            return true;
+            }
+            else {false}
+    }
+    
     // let correctInputDay = checkInputDay();
     // function checkInputDay () {
     //     if (inputDay.lenght < 3 && inputDay < 32) {
