@@ -78,6 +78,10 @@ body main .container input {
     border: 0.5px solid var(--lightGrey);
 }
 
+body main .container input:focus{
+    outline: var(--lightred);
+}
+
 /* ---------------------------------------------------------------- */
 body main div.line-button {
     display: flex;

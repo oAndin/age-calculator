@@ -22,92 +22,69 @@ console.log("Hello World!");
 //     }
 // }
 
+let date = new Date();
+console.log(date);
+
 // check if input day is over 2 numbers and bigger than 31
 // check if input day is over 2 numbers and bigger than 12
 // check if input day is over 4 digits
 
 
-let date = new Date();
-console.log(date);
 
 let todaysYear = date.getFullYear(); // get the year
 let todaysMonth = date.getMonth(); // get the month, starting from 0
 let todaysDay = date.getDate(); // get the day of the month instead of the day of week
+
 function calc() {
     event.preventDefault();
-    
-    let inputDay;
-    let inputMonth;
-    let inputYear;
-    inputDay = day.value;
-    inputMonth = month.value;
-    inputYear = year.value;
-    
-    // let correctInputDay = checkInputDay();
-    // function checkInputDay () {
-    //     checkInputDay = (inputDay.length = 2 && inputDay < 31) ? true : false;
-    //     return;
-    // }
 
+    let inputDay;
+    inputDay = day.value;
     let correctInputDay = checkInputDay();
-    function checkInputDay () {
-        if (inputDay.lenght < 3 && inputDay < 32) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    function checkInputDay() {
+        return checkInputDay = (inputDay.lenght = 2 && inputDay < 31) ? true : false;
     }
-    
-    let correctInputMonth =  checkInputMonth();
-    function checkInputMonth () {
-        if (inputMonth.lenght < 3 && inputMonth < 13) {
-            return true;
-            }
-        else { 
-            return falae;
-        }
+
+    let inputMonth;
+    inputMonth = month.value;
+    let correctInputMonth = checkInputMonth();
+    function checkInputMonth() {
+        return checkInputMonth = (inputMonth.lenght = 2 && inputMonth < 31) ? true : false;
     }
-    
-    let correctInputYear = checkInputYear ();
-    function checkInputYear () {
-        if (inputYear.length < 5) {
-            return true;
-            }
-            else {false}
+
+    let inputYear;
+    inputYear = year.value;
+    let correctInputYear = checkInputYear();
+        function checkInputYear() {
+        return (inputYear.lenght = 4) ? true : false;
     }
-    
-    // let correctInputDay = checkInputDay();
-    // function checkInputDay () {
-    //     if (inputDay.lenght < 3 && inputDay < 32) {
-    //         return true;
-    //     }
-    // }
 
     console.log(correctInputDay);
-    // if () {
-    //     let calcYear;
-    //     calcYear = todaysYear - inputYear;
-    //     let calcMonth;
-    //     calcMonth = ((inputMonth - todaysMonth) + 1);
-    //     let calcDay;
-    //     calcDay = inputDay - todaysDay;
+    console.log(correctInputMonth);
+    console.log(correctInputYear);
+    if (correctInputDay != false & correctInputMonth != false && checkInputYear != false) {
+        let calcYear;
+        calcYear = todaysYear - inputYear;
+        let calcMonth;
+        calcMonth = ((inputMonth - todaysMonth) + 1);
+        let calcDay;
+        calcDay = inputDay - todaysDay;
 
-    //     if (todaysMonth > inputMonth) {
-    //         calcMonth *= -1;
-    //     }
+        if (todaysMonth > inputMonth) {
+            calcMonth *= -1;
+        }
 
-    //     if (todaysDay > inputDay) {
-    //         calcDay *= -1;
-    //     }
+        if (todaysDay > inputDay) {
+            calcDay *= -1;
+        }
 
-    //     // write the exact day, month and year!
-    //     yearResult.innerHTML = `${calcYear}`;
-    //     monthResult.innerHTML = `${calcMonth}`;
-    //     dayResult.innerHTML = `${calcDay}`;
-    // }
-    // else {
-    //     alert('Please fill in all fields!');
-    // }
+    // write the users's age!
+        yearResult.innerHTML = `${calcYear}`;
+        monthResult.innerHTML = `${calcMonth}`;
+        dayResult.innerHTML = `${calcDay}`;
+    }
+    else {
+        alert('Please fill in all fields!');
+    }
 };
 
