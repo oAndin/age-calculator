@@ -58,6 +58,7 @@ function calc() {
             return false;
         }
     }
+    
     // let correctInputDay = checkInputDay();
     // function checkInputDay () {
     //     if (inputDay.lenght < 3 && inputDay < 32) {
