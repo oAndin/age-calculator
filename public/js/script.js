@@ -45,7 +45,7 @@ function calc() {
     
     // let correctInputDay = checkInputDay();
     // function checkInputDay () {
-    //     checkInputDay = (inputDay.lenght = 2 && inputDay >= 31) ? true : false;
+    //     checkInputDay = (inputDay.length = 2 && inputDay < 31) ? true : false;
     //     return;
     // }
 
