@@ -38,7 +38,7 @@ let todaysMonth = date.getMonth(); // get the month, starting from 0
 let todaysDay = date.getDate(); // get the day of the month instead of the day of week
 
 function checkInputDay() {
-    return (day.length < 3 && day.value < 32) ? true : false;
+    return (day < 32) ? true : false;
 }
 function checkInputMonth() {
     return (month.length < 3 && month.value < 32) ? true : false;
@@ -50,6 +50,10 @@ function checkInputYear() {
 
 day.onblur = function () {
     checkInputDay();
+    console.log(correctInputDay)
+    console.log(day.value)
+    console.log(typeof(day.value))
+    console.log((typeof(Number(day.value))))
     if (correctInputDay == false) {
         
     }
