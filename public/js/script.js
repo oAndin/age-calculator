@@ -37,11 +37,15 @@ let todaysYear = date.getFullYear(); // get the year
 let todaysMonth = date.getMonth(); // get the month, starting from 0
 let todaysDay = date.getDate(); // get the day of the month instead of the day of week
 
+let dayInput;
+dayInput = day.value;
+
 function checkInputDay() {
-    return (day < 32) ? true : false;
+    // return (Number(day.value) < 32) ? true : false;
+    return (Number(day.value) < 32 && dayInput.length != 0 && dayInput.length < 3 && dayInput.value < 32) ? true : false;
 }
 function checkInputMonth() {
-    return (month.length < 3 && month.value < 32) ? true : false;
+    return (Number(month.value) < 13) ? true : false;
 }
 function checkInputYear() {
     return (year.length < 5) ? true : false;
@@ -50,9 +54,16 @@ function checkInputYear() {
 
 day.onblur = function () {
     checkInputDay();
-    console.log(correctInputDay)
-    console.log(day.value)
-    console.log(typeof(day.value))
+    if (Number(day.value) < 32 && dayInput.length != 0 && dayInput.length < 3 && dayInput.value < 32) {
+        console.log("Endelig")
+    }
+    else {
+        console.log("Eg kan ikje lenger")
+    };
+    console.log(dayInput);
+    typeof(dayInput);
+    console.log(correctInputDay);
+    console.log(typeof(day.value));
     console.log((typeof(Number(day.value))))
     if (correctInputDay == false) {
         
