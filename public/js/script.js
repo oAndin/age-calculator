@@ -29,53 +29,55 @@ console.log(date);
 // check if input day is over 2 numbers and bigger than 12
 // check if input day is over 4 digits
 
+function checkInputDay() {
+    return (day.lenght = 2 && day.value < 32) ? true : false;
+}
+function checkInputMonth() {
+    return (month.lenght = 2 && month.value < 32) ? true : false;
+}
+function checkInputYear() {
+    return year.lenght = 4 ? true : false;
+}
+
+let correctInputDay;
+correctInputDay = checkInputDay();
+
+let correctInputMonth;
+correctInputMonth = checkInputMonth();
+
+let correctInputYear;
+correctInputYear = checkInputYear();
 
 
 let todaysYear = date.getFullYear(); // get the year
 let todaysMonth = date.getMonth(); // get the month, starting from 0
 let todaysDay = date.getDate(); // get the day of the month instead of the day of week
+console.log(todaysDay)
+console.log(todaysMonth)
+console.log(todaysYear)
 
 function calc() {
     event.preventDefault();
 
-    let inputDay;
-    inputDay = day.value;
-    let correctInputDay = checkInputDay();
-    function checkInputDay() {
-        return checkInputDay = (inputDay.lenght = 2 && inputDay < 31) ? true : false;
-    }
+    checkInputDay()
+    checkInputMonth()
+    checkInputYear()
+    
 
-    let inputMonth;
-    inputMonth = month.value;
-    let correctInputMonth = checkInputMonth();
-    function checkInputMonth() {
-        return checkInputMonth = (inputMonth.lenght = 2 && inputMonth < 31) ? true : false;
-    }
-
-    let inputYear;
-    inputYear = year.value;
-    let correctInputYear = checkInputYear();
-        function checkInputYear() {
-        return (inputYear.lenght = 4) ? true : false;
-    }
-
-    console.log(correctInputDay);
-    console.log(correctInputMonth);
-    console.log(correctInputYear);
-    if (correctInputDay != false & correctInputMonth != false && checkInputYear != false) {
+    if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
         let calcYear;
-        calcYear = todaysYear - inputYear;
+        calcYear = todaysYear - year.value;
         let calcMonth;
-        calcMonth = ((inputMonth - todaysMonth) + 1);
+        calcMonth = (todaysMonth - month.value) + 1;
         let calcDay;
-        calcDay = inputDay - todaysDay;
+        calcDay =  todaysDay - day.value;
 
-        if (todaysMonth > inputMonth) {
-            calcMonth *= -1;
+        if (calcDay < 0) {
+            calcDay *= -1;
         }
 
-        if (todaysDay > inputDay) {
-            calcDay *= -1;
+        if (calcMonth < 0) {
+            calcMonth *= -1;
         }
 
     // write the users's age!
