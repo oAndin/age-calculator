@@ -79,7 +79,7 @@ body main .container input {
 }
 
 body main .container input:focus{
-    outline: var(--lightred);
+    outline-color: var(--primary);
 }
 
 /* ---------------------------------------------------------------- */

@@ -23,21 +23,6 @@ console.log("Hello World!");
 // }
 
 let date = new Date();
-console.log(date);
-
-// check if input day is over 2 numbers and bigger than 31
-// check if input day is over 2 numbers and bigger than 12
-// check if input day is over 4 digits
-
-function checkInputDay() {
-    return (day.lenght = 2 && day.value < 32) ? true : false;
-}
-function checkInputMonth() {
-    return (month.lenght = 2 && month.value < 32) ? true : false;
-}
-function checkInputYear() {
-    return year.lenght = 4 ? true : false;
-}
 
 let correctInputDay;
 correctInputDay = checkInputDay();
@@ -48,13 +33,40 @@ correctInputMonth = checkInputMonth();
 let correctInputYear;
 correctInputYear = checkInputYear();
 
-
 let todaysYear = date.getFullYear(); // get the year
 let todaysMonth = date.getMonth(); // get the month, starting from 0
 let todaysDay = date.getDate(); // get the day of the month instead of the day of week
-console.log(todaysDay)
-console.log(todaysMonth)
-console.log(todaysYear)
+
+function checkInputDay() {
+    return (day.length < 3 && day.value < 32) ? true : false;
+}
+function checkInputMonth() {
+    return (month.length < 3 && month.value < 32) ? true : false;
+}
+function checkInputYear() {
+    return (year.length < 5) ? true : false;
+}
+
+
+day.onblur = function () {
+    checkInputDay();
+    if (correctInputDay == false) {
+        
+    }
+}
+month.onblur = function () {
+    checkInputMonth();
+    if (correctInputMonth == false) {
+        
+    }
+}
+year.onblur = function () {
+    checkInputYear();
+
+    if(correctInputYear == false) {
+        
+    }
+};
 
 function calc() {
     event.preventDefault();
@@ -63,7 +75,6 @@ function calc() {
     checkInputMonth()
     checkInputYear()
     
-
     if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
         let calcYear;
         calcYear = todaysYear - year.value;
