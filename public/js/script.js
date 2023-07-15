@@ -23,65 +23,9 @@ console.log("Hello World!");
 // }
 
 let date = new Date();
-
-let correctInputDay;
-correctInputDay = checkInputDay();
-
-let correctInputMonth;
-correctInputMonth = checkInputMonth();
-
-let correctInputYear;
-correctInputYear = checkInputYear();
-
-let todaysYear = date.getFullYear(); // get the year
-let todaysMonth = date.getMonth(); // get the month, starting from 0
-let todaysDay = date.getDate(); // get the day of the month instead of the day of week
-
-let dayInput;
-dayInput = day.value;
-
-function checkInputDay() {
-    // return (Number(day.value) < 32) ? true : false;
-    return (Number(day.value) < 32 && dayInput.length != 0 && dayInput.length < 3 && dayInput.value < 32) ? true : false;
-}
-function checkInputMonth() {
-    return (Number(month.value) < 13) ? true : false;
-}
-function checkInputYear() {
-    return (year.length < 5) ? true : false;
-}
+// Okay
 
 
-day.onblur = function () {
-    checkInputDay();
-    if (Number(day.value) < 32 && dayInput.length != 0 && dayInput.length < 3 && dayInput.value < 32) {
-        console.log("Endelig")
-    }
-    else {
-        console.log("Eg kan ikje lenger")
-    };
-    console.log(dayInput);
-    typeof(dayInput);
-    console.log(correctInputDay);
-    console.log(typeof(day.value));
-    console.log((typeof(Number(day.value))))
-    if (correctInputDay == false) {
-        
-    }
-}
-month.onblur = function () {
-    checkInputMonth();
-    if (correctInputMonth == false) {
-        
-    }
-}
-year.onblur = function () {
-    checkInputYear();
-
-    if(correctInputYear == false) {
-        
-    }
-};
 
 function calc() {
     event.preventDefault();
@@ -90,7 +34,8 @@ function calc() {
     checkInputMonth()
     checkInputYear()
     
-    if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
+    // if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {}
+    // else {alert('Please fill in all fields!');}
         let calcYear;
         calcYear = todaysYear - year.value;
         let calcMonth;
@@ -110,9 +55,6 @@ function calc() {
         yearResult.innerHTML = `${calcYear}`;
         monthResult.innerHTML = `${calcMonth}`;
         dayResult.innerHTML = `${calcDay}`;
-    }
-    else {
-        alert('Please fill in all fields!');
-    }
+    
 };
 
