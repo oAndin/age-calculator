@@ -55,60 +55,85 @@ year.onkeyup = function () {
 
 // 2º focus out or blur to have a variable to check on a IF ELSE for valid data 
 day.onblur = function () {
-    if (dayInput != undefined && dayInput != null) {
+    if (dayInput != undefined && dayInput != '') {
         correctInputDay = true;
-        console.log(correctInputDay);
         return correctInputDay;
     } else {
-        alert("Olha o vacilo");
+        if(dayInput == '') {
+            pReqDay.className.add('no');
+        }
+        day.style.borderColor = '#ff0000';
+        dayLabel.style.color = '#ff0000';
     };
 }
 month.onblur = function () {
-    if (dayInput != undefined && dayInput != null) {
+    if (dayInput != undefined && dayInput != '') {
         correctInputMonth = true;
         return correctInputMonth;
     } else {
-        alert("Olha o vacilo");
+        month.style.borderColor = '#ff0000';
+        monthLabel.style.color = '#ff0000';
     };
 }
 year.onblur = function () {
-    if (dayInput != undefined && dayInput != null) {
+    if (dayInput != undefined && dayInput != '') {
         correctInputYear = true;
         return correctInputYear;
     }
     else {
-        alert("Olha o vacilo");
+        year.style.borderColor = '#ff0000';
+        yearLabel.style.color = '#ff0000';
     }
+}
+// --------------------------------------------------- 
+day.onfocus = function () {
+    day.style.borderColor = '#716f6f';
+    dayLabel.style.color = '#716f6f';
+}
+month.onfocus = function () {
+
+    month.style.borderColor = '#716f6f';
+    monthLabel.style.color = '#716f6f';
+
+}
+year.onfocus = function () {
+    year.style.borderColor = '#716f6f';
+    yearLabel.style.color = '#716f6f';
+
 }
 // 3º
 
 
 function calc() {
     event.preventDefault();
-    console.log(correctInputDay);
+
     if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
         let calcYear;
-    calcYear = todaysYear - year.value;
-    let calcMonth;
-    calcMonth = (todaysMonth - month.value) + 1;
-    let calcDay;
-    calcDay = todaysDay - day.value;
+        calcYear = todaysYear - year.value;
+        let calcMonth;
+        calcMonth = (todaysMonth - month.value) + 1;
+        let calcDay;
+        calcDay = todaysDay - day.value;
 
-    if (calcDay < 0) {
-        calcDay *= -1;
+        if (calcDay < 0) {
+            calcDay *= -1;
+        }
+
+        if (calcMonth < 0) {
+            calcMonth *= -1;
+        }
+
+        if (calcDay == 0 && calcMonth == 0 && calcYear == 0) {
+            alert("Really?");
+        }
+        if (calcDay == 0 && calcMonth == 0) {
+            alert("Happy Birthday");
+        }
+        // write the users's age!
+        yearResult.innerHTML = `${calcYear}`;
+        monthResult.innerHTML = `${calcMonth}`;
+        dayResult.innerHTML = `${calcDay}`;
+
     }
-
-    if (calcMonth < 0) {
-        calcMonth *= -1;
-    }
-
-    // write the users's age!
-    yearResult.innerHTML = `${calcYear}`;
-    monthResult.innerHTML = `${calcMonth}`;
-    dayResult.innerHTML = `${calcDay}`;
-
-    }
-    
-    // else {alert('Please fill in all fields!');}
 };
 

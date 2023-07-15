@@ -29,6 +29,7 @@
     --smokeyGrey: #716f6f;
     --offBlack: #141414;
     --linkColor: #3e52a3;
+    --red: #ff0000;
     --inputFontSize: 32px;
     --labelFontSize: 11px;
 }
@@ -67,7 +68,7 @@ body main .container form .row {
 }
 
 body main .container label {
-    color: #716f6f;
+    color: var(--smokeyGrey);
     font-size: var(--labelFontSize);
 }
 
@@ -76,10 +77,28 @@ body main .container input {
     padding: 0.7rem 0.7rem 0.7rem 1rem;
     border-radius: 6px;
     border: 0.5px solid var(--lightGrey);
+    position: relative;
 }
 
 body main .container input:focus{
     outline-color: var(--primary);
+}
+
+
+body main .container p {
+    font-size: x-small;
+    color: #ff0000;
+    position: absolute;
+    transform: translateY(60px);
+    font-style: italic;
+    visibility: hidden;
+}
+
+body main .container p.A {
+    visibility: visible;
+}
+body main .container p.A {
+    visibility: visible;
 }
 
 /* ---------------------------------------------------------------- */
