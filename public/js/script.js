@@ -57,75 +57,75 @@ year.onkeyup = function () {
     yearInput = Number(year.value);
     return yearInput;
 }
-// .value < 32  != isNaN()
+
 // 2º focus out or blur to have a variable to check on a IF ELSE for valid data 
 day.onblur = function () {
-    if (dayInput != undefined && dayInput != '') { //----------------------------------------------------------------------------
+    if (isNaN(dayInput) != true && dayInput != '') { //----------------------------------------------------------------------------
         correctInputDay = true;
         console.log(correctInputDay);
         return correctInputDay;
-    } else {
-        if (dayInput === '') {
-            day.style.borderColor = '#ff0000';
-            dayLabel.style.color = '#ff0000';
-            pRequiredDay.style.visibility = 'visible';
-        }
-        if (dayInput == undefined){
-            day.style.borderColor = '#ff0000';
-            dayLabel.style.color = '#ff0000';
-            pValidDay.style.visibility = 'visible';
-        }
-    };
+    }
+    if (dayInput === '') {
+        day.style.borderColor = '#ff0000';
+        dayLabel.style.color = '#ff0000';
+        pRequiredDay.style.visibility = 'visible';
+    }
+    if (isNaN(dayInput) == true) {
+        day.style.borderColor = '#ff0000';
+        dayLabel.style.color = '#ff0000';
+        pValidDay.style.visibility = 'visible';
+    }
 }
 month.onblur = function () {
-    if (dayInput != undefined && dayInput != '') {
+    if (isNaN(monthInput) != true && dayInput != '') {
         correctInputMonth = true;
         return correctInputMonth;
-    } else {
-        if (monthInput == '') {
-            month.style.borderColor = '#ff0000';
-            monthLabel.style.color = '#ff0000';
-            pRequiredMonth.style.visibility = 'visible';
-        }
-        if (dayInput == undefined){
-            month.style.borderColor = '#ff0000';
-            monthLabel.style.color = '#ff0000';
-            pValidMonth.style.visibility = 'visible';
-        }
-    };
+    }
+    if (monthInput == '') {
+        month.style.borderColor = '#ff0000';
+        monthLabel.style.color = '#ff0000';
+        pRequiredMonth.style.visibility = 'visible';
+    }
+    if (isNaN(monthInput) == true) {
+        month.style.borderColor = '#ff0000';
+        monthLabel.style.color = '#ff0000';
+        pValidMonth.style.visibility = 'visible';
+    }
 }
 year.onblur = function () {
-    if (dayInput != undefined && dayInput != '') {
+    if (isNaN(yearInput) != true && dayInput != '') {
         correctInputYear = true;
         return correctInputYear;
     }
-    else {
-        if (dayInput == '') {
-            year.style.borderColor = '#ff0000';
-            yearLabel.style.color = '#ff0000';
-            pRequiredYear.style.visibility = 'visible';
-        }
-        if (dayInput == undefined){
-            year.style.borderColor = '#ff0000';
-            yearLabel.style.color = '#ff0000';
-            pValidYear.style.visibility = 'visible';
-        }
+    if (yearInput == '') {
+        year.style.borderColor = '#ff0000';
+        yearLabel.style.color = '#ff0000';
+        pRequiredYear.style.visibility = 'visible';
+    }
+    if (isNaN(yearInput) == true) {
+        year.style.borderColor = '#ff0000';
+        yearLabel.style.color = '#ff0000';
+        pValidYear.style.visibility = 'visible';
     }
 }
 // --------------------------------------------------- 
 day.onfocus = function () {
+    dayInput = '';
     day.style.borderColor = '#716f6f';
     dayLabel.style.color = '#716f6f';
     pRequiredDay.style.visibility = 'hidden';
     pValidDay.style.visibility = 'hidden';
+
 }
 month.onfocus = function () {
+    monthInput = '';
     month.style.borderColor = '#716f6f';
     monthLabel.style.color = '#716f6f';
     pRequiredMonth.style.visibility = 'hidden';
     pValidMonth.style.visibility = 'hidden';
 }
 year.onfocus = function () {
+    yearInput = '';
     year.style.borderColor = '#716f6f';
     yearLabel.style.color = '#716f6f';
     pRequiredYear.style.visibility = 'hidden';
