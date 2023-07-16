@@ -94,13 +94,6 @@ body main .container p {
     visibility: hidden;
 }
 
-body main .container p.A {
-    visibility: visible;
-}
-body main .container p.A {
-    visibility: visible;
-}
-
 /* ---------------------------------------------------------------- */
 body main div.line-button {
     display: flex;
