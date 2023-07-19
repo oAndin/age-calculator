@@ -161,7 +161,7 @@ function calc() {
         }
         // write the users's age!
         yearResult.innerHTML = `${calcYear}`;
-        monthResult.innerHTML = `${calcMonth}`;
+        monthResult.innerHTML = `0${calcMonth}`;
         dayResult.innerHTML = `${calcDay}`;
 
     }
