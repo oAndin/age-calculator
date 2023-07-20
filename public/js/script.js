@@ -60,7 +60,7 @@ year.onkeyup = function () {
 
 // 2º focus out or blur to have a variable to check on a IF ELSE for valid data 
 day.onblur = function () {
-    if (isNaN(dayInput) != true && dayInput != '') { //----------------------------------------------------------------------------
+    if (isNaN(dayInput) != true && dayInput != '' && dayInput >= 1) { //----------------------------------------------------------------------------
         correctInputDay = true;
         console.log(correctInputDay);
         return correctInputDay;
@@ -70,14 +70,14 @@ day.onblur = function () {
         dayLabel.style.color = '#ff0000';
         pRequiredDay.style.visibility = 'visible';
     }
-    if (isNaN(dayInput) == true) {
+    if (isNaN(dayInput) == true || dayInput.value <= 0) {
         day.style.borderColor = '#ff0000';
         dayLabel.style.color = '#ff0000';
         pValidDay.style.visibility = 'visible';
     }
 }
 month.onblur = function () {
-    if (isNaN(monthInput) != true && dayInput != '') {
+    if (isNaN(monthInput) != true && monthInput != '' && monthInput >= 1) {
         correctInputMonth = true;
         return correctInputMonth;
     }
@@ -86,14 +86,14 @@ month.onblur = function () {
         monthLabel.style.color = '#ff0000';
         pRequiredMonth.style.visibility = 'visible';
     }
-    if (isNaN(monthInput) == true) {
+    if (isNaN(monthInput) == true || monthInput < 1) {
         month.style.borderColor = '#ff0000';
         monthLabel.style.color = '#ff0000';
         pValidMonth.style.visibility = 'visible';
     }
 }
 year.onblur = function () {
-    if (isNaN(yearInput) != true && dayInput != '') {
+    if (isNaN(yearInput) != true && dayInput != '' && yearInput >= 1) {
         correctInputYear = true;
         return correctInputYear;
     }
@@ -140,17 +140,31 @@ function calc() {
     if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
         let calcYear;
         calcYear = todaysYear - year.value;
+
         let calcMonth;
         calcMonth = (todaysMonth - month.value) + 1;
+
         let calcDay;
         calcDay = todaysDay - day.value;
 
-        if (calcDay < 0) {
-            calcDay *= -1;
-        }
+        /*
+        Dia negativo -> * -1;
+        Dia negativo && Mês negativo -> menos um mês &&  * -1;
+        */
 
-        if (calcMonth < 0) {
+        // 07 - 12 = -5 ;
+        if (calcDay < 0 && calcMonth < 0){
+            calcDay *= -1;
             calcMonth *= -1;
+            calcMonth--;
+        }
+        if (calcDay < 0 && calcMonth > 0){
+            calcDay *= -1;
+            calcMonth--;
+        }
+        if (calcDay > 0 && calcMonth < 0){
+            calcMonth *= -1;
+            calcYear--;
         }
 
         if (calcDay == 0 && calcMonth == 0 && calcYear == 0) {
@@ -159,9 +173,10 @@ function calc() {
         if (calcDay == 0 && calcMonth == 0) {
             alert("Happy Birthday");
         }
+
         // write the users's age!
         yearResult.innerHTML = `${calcYear}`;
-        monthResult.innerHTML = `0${calcMonth}`;
+        monthResult.innerHTML = `${calcMonth}`;
         dayResult.innerHTML = `${calcDay}`;
 
     }
