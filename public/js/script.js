@@ -1,8 +1,7 @@
 console.log("Hello World!");
 
-// array with objects in case of select input type
-// let daysMonths = [
-//     { january: 31 }, 
+// const daysMonths = [
+//     { january : 31 }, 
 //     { february: 28 }, 
 //     { march: 31 }, 
 //     { april: 30 }, 
@@ -13,7 +12,7 @@ console.log("Hello World!");
 //     { september: 30 }, 
 //     { october: 31 }, 
 //     { november: 30 }, 
-//     { december: 31 },
+//     { december: 31 }, 
 // ];
 
 // function leapYear(){
@@ -133,7 +132,6 @@ year.onfocus = function () {
 }
 // 3º
 
-
 function calc() {
     event.preventDefault();
 
@@ -142,28 +140,24 @@ function calc() {
         calcYear = todaysYear - year.value;
 
         let calcMonth;
-        calcMonth = (todaysMonth - month.value) + 1;
+        calcMonth = ((todaysMonth + 1) - month.value); 
+        // ((todaysMonth + 1) - month.value);
+        
 
         let calcDay;
         calcDay = todaysDay - day.value;
+        // calcDay = daysMonths[`${}`].value;
 
-        /*
-        Dia negativo -> * -1;
-        Dia negativo && Mês negativo -> menos um mês &&  * -1;
-        */
-
-        // 07 - 12 = -5 ;
-        if (calcDay < 0 && calcMonth < 0){
+        if(calcDay < 0) {
             calcDay *= -1;
-            calcMonth *= -1;
-            calcMonth--;
+        }   
+        if(calcMonth < 0) {
+            calcMonth += 12;
+            calcYear--;
         }
-        if (calcDay < 0 && calcMonth > 0){
+        if(calcMonth < 0 && calcDay < 0){
             calcDay *= -1;
-            calcMonth--;
-        }
-        if (calcDay > 0 && calcMonth < 0){
-            calcMonth *= -1;
+            calcMonth -= -12;
             calcYear--;
         }
 
@@ -173,7 +167,6 @@ function calc() {
         if (calcDay == 0 && calcMonth == 0) {
             alert("Happy Birthday");
         }
-
         // write the users's age!
         yearResult.innerHTML = `${calcYear}`;
         monthResult.innerHTML = `${calcMonth}`;
@@ -181,4 +174,3 @@ function calc() {
 
     }
 };
-
