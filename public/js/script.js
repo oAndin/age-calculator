@@ -37,9 +37,8 @@ let correctInputMonth;
 let correctInputYear;
 
 day.onblur = function () {
-    if (isNaN(day.value) != true && day.value != '' && day.value >= 1) { //----------------------------------------------------------------------------
+    if (isNaN(day.value) != true && day.value != '' && day.value >= 1) {
         correctInputDay = true;
-        console.log(correctInputDay);
         return correctInputDay;
     }
     if (day.value <= 0) {
@@ -71,7 +70,7 @@ month.onblur = function () {
     }
 }
 year.onblur = function () {
-    if (isNaN(year.value) != true && year.value != '' && Number(year.value) < todaysYear) {
+    if (isNaN(year.value) != true && year.value != '' && Number(year.value) <= todaysYear) {
         correctInputYear = true;
         return correctInputYear;
     }
@@ -84,6 +83,7 @@ year.onblur = function () {
         year.style.borderColor = '#ff0000';
         yearLabel.style.color = '#ff0000';
         pRequiredYear.style.visibility = 'visible';
+        pValidYear.innerHTML = 'Must be a valid day';
     }
     if (Number(year.value) > todaysYear) {
         year.style.borderColor = '#ff0000';
@@ -127,18 +127,42 @@ function calc() {
         calcDay = todaysDay - day.value;
         // calcDay = daysMonths[`${}`].value;
 
-        if(calcDay < 0) {
+        /* 
+        day < 0 e month < 0 / day < 0 e month > 0 / day > 0 e month < 0 / day > 0 e month > 0 */
+
+        if(calcDay < 0 && calcMonth < 0) {
             calcDay *= -1;
-        }   
-        if(calcMonth < 0) {
-            calcMonth += 12;
+            calcMonth = calcMonth + 12;
             calcYear--;
         }
-        if(calcMonth < 0 && calcDay < 0){
-            calcDay *= -1;
-            calcMonth -= -12;
+        if(calcDay >= 0 && calcMonth < 0) {
+            calcMonth = calcMonth + 12;
             calcYear--;
         }
+        if(calcDay < 0 && calcMonth > 0) {
+            calcDay *= -1;
+        }
+        if(calcDay < 0 && calcMonth >= 0) {
+            calcDay *= -1;
+        }
+        
+        // if(calcDay < 0) {
+        //     calcDay *= -1;
+        //     calcMonth--;
+        //     calcMonth += 12;
+        //     calcYear--;
+        // }
+        // if(calcMonth < 0) {
+        //     calcMonth += 12;
+        //     calcYear--;
+        // }
+        // if(calcMonth < 0 && calcDay < 0){
+        //     calcDay *= -1;
+        //     calcMonth -= -12;
+        //     calcYear--;
+        // }
+
+        if(calcDay < 0 && calcMonth )
 
         if (calcDay == 0 && calcMonth == 0 && calcYear == 0) {
             alert("Really?");
