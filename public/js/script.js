@@ -32,8 +32,6 @@ let todaysYear = date.getFullYear();
 let todaysMonth = date.getMonth();
 let todaysDay = date.getDate();
 
-// 1º focus in to create a variable so i dont get the error, cause you can resign a value for it later!"
-
 let dayInput;
 let monthInput;
 let yearInput;
@@ -41,7 +39,6 @@ let yearInput;
 let correctInputDay;
 let correctInputMonth;
 let correctInputYear;
-// 2º store the value of it input day, month and year"(.value)
 
 day.onkeyup = function () {
     dayInput = Number(day.value);
@@ -57,9 +54,8 @@ year.onkeyup = function () {
     return yearInput;
 }
 
-// 2º focus out or blur to have a variable to check on a IF ELSE for valid data 
 day.onblur = function () {
-    if (isNaN(dayInput) != true && dayInput != '' && dayInput >= 1) { //----------------------------------------------------------------------------
+    if (isNaN(dayInput) != true && dayInput != '' && dayInput.value >= 1) { //----------------------------------------------------------------------------
         correctInputDay = true;
         console.log(correctInputDay);
         return correctInputDay;
@@ -76,7 +72,7 @@ day.onblur = function () {
     }
 }
 month.onblur = function () {
-    if (isNaN(monthInput) != true && monthInput != '' && monthInput >= 1) {
+    if (isNaN(monthInput) != true && monthInput != '' && monthInput.value >= 1) {
         correctInputMonth = true;
         return correctInputMonth;
     }
@@ -85,14 +81,14 @@ month.onblur = function () {
         monthLabel.style.color = '#ff0000';
         pRequiredMonth.style.visibility = 'visible';
     }
-    if (isNaN(monthInput) == true || monthInput < 1) {
+    if (isNaN(monthInput) == true || monthInput.value < 1) {
         month.style.borderColor = '#ff0000';
         monthLabel.style.color = '#ff0000';
         pValidMonth.style.visibility = 'visible';
     }
 }
 year.onblur = function () {
-    if (isNaN(yearInput) != true && dayInput != '' && yearInput >= 1) {
+    if (isNaN(yearInput) != true && dayInput != '') {
         correctInputYear = true;
         return correctInputYear;
     }
@@ -140,10 +136,7 @@ function calc() {
         calcYear = todaysYear - year.value;
 
         let calcMonth;
-        calcMonth = ((todaysMonth + 1) - month.value); 
-        // ((todaysMonth + 1) - month.value);
-        
-
+        calcMonth = ((todaysMonth + 1) - month.value);
         let calcDay;
         calcDay = todaysDay - day.value;
         // calcDay = daysMonths[`${}`].value;
