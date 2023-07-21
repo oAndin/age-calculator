@@ -1,8 +1,7 @@
 console.log("Hello World!");
 
-// array with objects in case of select input type
-// let daysMonths = [
-//     { january: 31 }, 
+// const daysMonths = [
+//     { january : 31 }, 
 //     { february: 28 }, 
 //     { march: 31 }, 
 //     { april: 30 }, 
@@ -13,7 +12,7 @@ console.log("Hello World!");
 //     { september: 30 }, 
 //     { october: 31 }, 
 //     { november: 30 }, 
-//     { december: 31 },
+//     { december: 31 }, 
 // ];
 
 // function leapYear(){
@@ -33,8 +32,6 @@ let todaysYear = date.getFullYear();
 let todaysMonth = date.getMonth();
 let todaysDay = date.getDate();
 
-// 1º focus in to create a variable so i dont get the error, cause you can resign a value for it later!"
-
 let dayInput;
 let monthInput;
 let yearInput;
@@ -42,7 +39,6 @@ let yearInput;
 let correctInputDay;
 let correctInputMonth;
 let correctInputYear;
-// 2º store the value of it input day, month and year"(.value)
 
 day.onkeyup = function () {
     dayInput = Number(day.value);
@@ -58,9 +54,8 @@ year.onkeyup = function () {
     return yearInput;
 }
 
-// 2º focus out or blur to have a variable to check on a IF ELSE for valid data 
 day.onblur = function () {
-    if (isNaN(dayInput) != true && dayInput != '') { //----------------------------------------------------------------------------
+    if (isNaN(dayInput) != true && dayInput != '' && dayInput.value >= 1) { //----------------------------------------------------------------------------
         correctInputDay = true;
         console.log(correctInputDay);
         return correctInputDay;
@@ -70,14 +65,14 @@ day.onblur = function () {
         dayLabel.style.color = '#ff0000';
         pRequiredDay.style.visibility = 'visible';
     }
-    if (isNaN(dayInput) == true) {
+    if (isNaN(dayInput) == true || dayInput.value <= 0) {
         day.style.borderColor = '#ff0000';
         dayLabel.style.color = '#ff0000';
         pValidDay.style.visibility = 'visible';
     }
 }
 month.onblur = function () {
-    if (isNaN(monthInput) != true && dayInput != '') {
+    if (isNaN(monthInput) != true && monthInput != '' && monthInput.value >= 1) {
         correctInputMonth = true;
         return correctInputMonth;
     }
@@ -86,7 +81,7 @@ month.onblur = function () {
         monthLabel.style.color = '#ff0000';
         pRequiredMonth.style.visibility = 'visible';
     }
-    if (isNaN(monthInput) == true) {
+    if (isNaN(monthInput) == true || monthInput.value < 1) {
         month.style.borderColor = '#ff0000';
         monthLabel.style.color = '#ff0000';
         pValidMonth.style.visibility = 'visible';
@@ -133,24 +128,30 @@ year.onfocus = function () {
 }
 // 3º
 
-
 function calc() {
     event.preventDefault();
 
     if (correctInputDay === true & correctInputMonth === true && correctInputYear === true) {
         let calcYear;
         calcYear = todaysYear - year.value;
+
         let calcMonth;
-        calcMonth = (todaysMonth - month.value) + 1;
+        calcMonth = ((todaysMonth + 1) - month.value);
         let calcDay;
         calcDay = todaysDay - day.value;
+        // calcDay = daysMonths[`${}`].value;
 
-        if (calcDay < 0) {
+        if(calcDay < 0) {
             calcDay *= -1;
+        }   
+        if(calcMonth < 0) {
+            calcMonth += 12;
+            calcYear--;
         }
-
-        if (calcMonth < 0) {
-            calcMonth *= -1;
+        if(calcMonth < 0 && calcDay < 0){
+            calcDay *= -1;
+            calcMonth -= -12;
+            calcYear--;
         }
 
         if (calcDay == 0 && calcMonth == 0 && calcYear == 0) {
@@ -166,4 +167,3 @@ function calc() {
 
     }
 };
-
