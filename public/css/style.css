@@ -54,7 +54,7 @@ body main {
 }
 
 body main .container {
-    width: 60%;
+    width: 50%;
     padding: 3rem 3rem;
     border-radius: 16px;
     border-bottom-right-radius: 120px;
@@ -178,12 +178,11 @@ body main div.result div h2 {
 }
 
 /* ---------------------------------------------------------------- */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
 
     body main .container {
         width: 90%;
         padding: 1rem;
-
     }
 
     body main div.result div {
@@ -216,6 +215,7 @@ body main div.result div h2 {
     body main div.line-button button:hover {
         transform: none;
     }
+
     body main div.line-button button:active {
         transform: none;
     }
@@ -224,4 +224,24 @@ body main div.result div h2 {
         margin-top: 2.5rem;
     }
 }
-    /* ---------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+    body main .container {
+        width: 80%;
+        padding: 1rem;
+    }
+}
+@media (min-width: 1024px) {
+    body main .container {
+        width: 50%;
+        padding: 2rem;
+    }
+}
+@media (min-width: 2560px) {
+    body main .container {
+        width: 33%;
+        padding: 2rem;
+    }
+}
